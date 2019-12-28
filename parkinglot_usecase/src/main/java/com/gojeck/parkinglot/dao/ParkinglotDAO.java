@@ -22,4 +22,6 @@ public interface ParkinglotDAO {
 	List<Integer> findCarSlotNumberForGivenColor(String color);
 	
 	List<String> getCarRegNumbersBasedOnColur(String color);
+	
+	String leaveCar(Integer slotNumber) throws ParkingLotNotAvilableException;
 }

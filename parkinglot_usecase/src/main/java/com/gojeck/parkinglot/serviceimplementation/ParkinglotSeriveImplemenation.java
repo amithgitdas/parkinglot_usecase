@@ -46,4 +46,9 @@ public class ParkinglotSeriveImplemenation implements ParkinglotService {
 		return ParkinglotUtils.convertListToString(carRegNumber);
 	}
 
+	@Override
+	public String leaveCar(Integer slotNum) throws ParkingLotNotAvilableException {
+		return parkingLotDAO.leaveCar(slotNum);
+	}
+
 }

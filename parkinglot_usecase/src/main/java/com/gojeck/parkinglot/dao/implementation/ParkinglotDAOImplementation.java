@@ -69,4 +69,16 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		return carRegNo;
 	}
 
+	@Override
+	public String leaveCar(Integer slotNUm) throws ParkingLotNotAvilableException {
+		for (Map.Entry<Integer, CarModel> entry : parkingLotMap.entrySet()) {
+			if (entry.getKey() == slotNUm) {
+				parkingLotMap.put(entry.getKey(), null);
+				availableLots.add(slotNUm);
+				return "Slot " + slotNUm + " is free";
+			}
+		}
+		throw new ParkingLotNotAvilableException(slotNUm + " Slot not found!");
+	}
+
 }

@@ -85,5 +85,16 @@ public class ParkinglotDaoTest {
 		assertEquals(expected, ouput);
 
 	}
+	
+	@Test
+	public void leaveCar() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel+1);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingDAO.parkCar(car);
+		parkingDAO.parkCar(car);
+		String ouput = parkingDAO.leaveCar(2);
+		assertEquals("Slot 2 is free", ouput);
+
+	}
 
 }

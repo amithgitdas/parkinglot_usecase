@@ -6,6 +6,7 @@ package com.gojeck.parkinglot.slotassignment;
 import java.util.Scanner;
 
 import com.gojeck.parkinglot.constants.ParkingLotConstants;
+import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
 import com.gojeck.parkinglot.model.CarModel;
 import com.gojeck.parkinglot.service.ParkinglotService;
 import com.gojeck.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
@@ -23,7 +24,7 @@ public class ParkingLotAssignment {
 	static ParkinglotService parkingService = new ParkinglotSeriveImplemenation();
 	static Scanner scn = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, ParkingLotNotAvilableException {
 		int noOfParkingSlots = 0;
 		while (true) {
 			try {
@@ -43,7 +44,7 @@ public class ParkingLotAssignment {
 		} while (true);
 	}
 
-	private static void parkingSlotAssignment(String input) {
+	private static void parkingSlotAssignment(String input) throws NumberFormatException, ParkingLotNotAvilableException {
 		String[] carArr = input.split(" ");
 		switch (carArr[0]) {
 		case ParkingLotConstants.PARK_CAR:
@@ -69,7 +70,15 @@ public class ParkingLotAssignment {
 				System.out.println(allDetails);
 			}
 			break;
+			
+		case ParkingLotConstants.LEAVE_CAR: // Leave Parking
+			if (ParkinglotUtils.checkInput(carArr, 2) && ParkinglotUtils.validateInPut(carArr[1])) {
+				String leaveParkingStatus = parkingService.leaveCar(Integer.parseInt(carArr[1]));
+				System.out.println(leaveParkingStatus);
+			}
+			break;
 		}
+		
 	}
 
 	public static void parkCar(String[] carDtls) {

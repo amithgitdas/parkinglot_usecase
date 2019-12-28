@@ -15,4 +15,6 @@ public interface ParkingLotConstants {
 	public static final String CAR_SLOT_NUM_BASED_ON_COLOR = "slot_numbers_for_cars_with_colour";
 	
 	public static final String CAR_REG_NO_BASED_ON_COLOR = "registration_numbers_for_cars_with_colour";
+	
+	public static final String LEAVE_CAR = "leave";
 }

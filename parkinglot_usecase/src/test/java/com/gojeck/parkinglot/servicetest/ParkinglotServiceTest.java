@@ -70,5 +70,16 @@ public class ParkinglotServiceTest {
 		assertEquals(carRegNum, ouput);
 
 	}
+	
+	@Test
+	public void leaveCar() throws ParkingLotNotAvilableException {
+		parkingService.createParkingLot(parkingLevel+1);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingService.parkCar(car);
+		parkingService.parkCar(car);
+		String ouput = parkingService.leaveCar(2);
+		assertEquals("Slot 2 is free", ouput);
+
+	}
 
 }
