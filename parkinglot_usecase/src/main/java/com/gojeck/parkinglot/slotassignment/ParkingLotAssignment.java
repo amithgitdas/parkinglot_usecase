@@ -3,7 +3,9 @@
  */
 package com.gojeck.parkinglot.slotassignment;
 
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.gojeck.parkinglot.constants.ParkingLotConstants;
 import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
@@ -44,7 +46,8 @@ public class ParkingLotAssignment {
 		} while (true);
 	}
 
-	private static void parkingSlotAssignment(String input) throws NumberFormatException, ParkingLotNotAvilableException {
+	private static void parkingSlotAssignment(String input)
+			throws NumberFormatException, ParkingLotNotAvilableException {
 		String[] carArr = input.split(" ");
 		switch (carArr[0]) {
 		case ParkingLotConstants.PARK_CAR:
@@ -63,22 +66,26 @@ public class ParkingLotAssignment {
 				System.out.println(allSlotNumber);
 			}
 			break;
-			
-		case ParkingLotConstants.CAR_REG_NO_BASED_ON_COLOR: 
+
+		case ParkingLotConstants.CAR_REG_NO_BASED_ON_COLOR:
 			if (ParkinglotUtils.checkInput(carArr, 2)) {
 				String allDetails = parkingService.getCarRegNumbersBasedOnColur(carArr[1]);
 				System.out.println(allDetails);
 			}
 			break;
-			
-		case ParkingLotConstants.LEAVE_CAR: // Leave Parking
+
+		case ParkingLotConstants.LEAVE_CAR:
 			if (ParkinglotUtils.checkInput(carArr, 2) && ParkinglotUtils.validateInPut(carArr[1])) {
 				String leaveParkingStatus = parkingService.leaveCar(Integer.parseInt(carArr[1]));
 				System.out.println(leaveParkingStatus);
 			}
 			break;
+
+		case ParkingLotConstants.CAR_PARK_STATUS:
+			printParkingStatus();
+			break;
 		}
-		
+
 	}
 
 	public static void parkCar(String[] carDtls) {
@@ -87,6 +94,16 @@ public class ParkingLotAssignment {
 			CarModel car = new CarModel(carDtls[1], carDtls[2]);
 			String parkVehicleStatus = parkingService.parkCar(car);
 			System.out.println(parkVehicleStatus);
+		}
+	}
+
+	public static void printParkingStatus() {
+		Set<Entry<Integer, CarModel>> parkingDetails = parkingService.carParkStatus();
+		System.out.println("Slot No." + "  " + " Registration No " + "\t" + " Color");
+		for (Entry<Integer, CarModel> park : parkingDetails) {
+			if (park.getValue() != null)
+				System.out.println(park.getKey() + "\t    " + park.getValue().getRegistrationNo() + "\t\t  "
+						+ park.getValue().getColor());
 		}
 	}
 

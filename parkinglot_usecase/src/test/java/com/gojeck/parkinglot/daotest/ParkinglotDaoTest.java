@@ -7,6 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
@@ -94,6 +96,17 @@ public class ParkinglotDaoTest {
 		parkingDAO.parkCar(car);
 		String ouput = parkingDAO.leaveCar(2);
 		assertEquals("Slot 2 is free", ouput);
+
+	}
+	
+	@Test
+	public void carParkingStatus() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel+1);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingDAO.parkCar(car);
+		parkingDAO.parkCar(car);
+		Set<Entry<Integer, CarModel>> ouput = parkingDAO.carParkStatus();
+		assertEquals(7, ouput.size());
 
 	}
 

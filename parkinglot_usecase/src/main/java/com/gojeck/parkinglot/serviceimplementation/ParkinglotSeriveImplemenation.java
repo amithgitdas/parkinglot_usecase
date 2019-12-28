@@ -1,6 +1,8 @@
 package com.gojeck.parkinglot.serviceimplementation;
 
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.gojeck.parkinglot.dao.ParkinglotDAO;
 import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
@@ -24,7 +26,7 @@ public class ParkinglotSeriveImplemenation implements ParkinglotService {
 			slotNo = parkingLotDAO.parkCar(car);
 			return "Allocated Slot Number: " + slotNo;
 		} catch (ParkingLotNotAvilableException e) {
-			return "Sorry, car parking lot is full";
+			return "Sorry, parking lot is full";
 		}
 	}
 
@@ -49,6 +51,11 @@ public class ParkinglotSeriveImplemenation implements ParkinglotService {
 	@Override
 	public String leaveCar(Integer slotNum) throws ParkingLotNotAvilableException {
 		return parkingLotDAO.leaveCar(slotNum);
+	}
+
+	@Override
+	public Set<Entry<Integer, CarModel>> carParkStatus() {
+		return parkingLotDAO.carParkStatus();
 	}
 
 }

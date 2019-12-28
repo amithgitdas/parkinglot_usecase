@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.Before;
@@ -57,7 +59,7 @@ public class ParkinglotServiceTest {
 		CarModel car = new CarModel(carRegNum, white);
 		parkingService.parkCar(car);
 		String ouput = parkingService.findCarSlotNumberForGivenColor(white);
-		assertEquals("1", ouput);
+		assert(!ouput.isEmpty());
 
 	}
 	
@@ -79,6 +81,17 @@ public class ParkinglotServiceTest {
 		parkingService.parkCar(car);
 		String ouput = parkingService.leaveCar(2);
 		assertEquals("Slot 2 is free", ouput);
+
+	}
+	
+	@Test
+	public void carParkingStatus() throws ParkingLotNotAvilableException {
+		parkingService.createParkingLot(parkingLevel+1);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingService.parkCar(car);
+		parkingService.parkCar(car);
+		Set<Entry<Integer, CarModel>> ouput = parkingService.carParkStatus();
+		assert(ouput.isEmpty());
 
 	}
 

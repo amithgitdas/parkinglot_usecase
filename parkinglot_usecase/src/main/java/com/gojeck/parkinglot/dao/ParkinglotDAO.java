@@ -4,6 +4,8 @@
 package com.gojeck.parkinglot.dao;
 
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
 import com.gojeck.parkinglot.model.CarModel;
@@ -24,4 +26,6 @@ public interface ParkinglotDAO {
 	List<String> getCarRegNumbersBasedOnColur(String color);
 	
 	String leaveCar(Integer slotNumber) throws ParkingLotNotAvilableException;
+	
+	Set<Entry<Integer, CarModel>> carParkStatus();
 }

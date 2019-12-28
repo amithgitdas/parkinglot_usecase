@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeSet;
 
 import com.gojeck.parkinglot.dao.ParkinglotDAO;
@@ -79,6 +81,11 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 			}
 		}
 		throw new ParkingLotNotAvilableException(slotNUm + " Slot not found!");
+	}
+
+	@Override
+	public Set<Entry<Integer, CarModel>> carParkStatus() {
+		return parkingLotMap.entrySet();
 	}
 
 }
