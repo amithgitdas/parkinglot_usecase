@@ -8,5 +8,5 @@ package com.gojeck.parkinglot.constants;
  *
  */
 public interface ParkingLotConstants {
-
+	public static final String PARK_CAR = "park";
 }

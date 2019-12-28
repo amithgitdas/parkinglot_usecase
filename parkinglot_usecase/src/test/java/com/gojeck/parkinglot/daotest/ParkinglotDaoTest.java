@@ -3,12 +3,16 @@
  */
 package com.gojeck.parkinglot.daotest;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.gojeck.parkinglot.dao.ParkinglotDAO;
 import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
+import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.gojeck.parkinglot.model.CarModel;
 
 /**
  * @author AMITH DAS
@@ -17,6 +21,9 @@ import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
 public class ParkinglotDaoTest {
 	private int parkingLevel;
 	private ParkinglotDAO parkingDAO = new ParkinglotDAOImplementation();
+	private String carRegNum = "KA-01-HH-9999";
+	private String white = "White";
+	private String black = "Black";
 
 	@Before
 	public void init() {
@@ -29,8 +36,17 @@ public class ParkinglotDaoTest {
 	}
 
 	@Test
-	public void createParkingLotsUsingNoOfParking() {
+	public void createCarParkingLot() {
 		parkingDAO.createParkinglots(parkingLevel);
+	}
+
+	@Test
+	public void AssignSlotForCar() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		int ouput = parkingDAO.parkCar(car);
+		assertEquals(1, ouput);
+
 	}
 
 }
