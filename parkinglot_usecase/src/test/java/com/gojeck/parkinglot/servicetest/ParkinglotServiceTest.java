@@ -16,6 +16,9 @@ public class ParkinglotServiceTest {
 	private int parkingLevel;
 	private ParkinglotService parkingService = new ParkinglotSeriveImplemenation();
 	private CarModel whiteCar= new CarModel("KA-01-HH-9999", "White");
+	private String carRegNum="KA-01-HH-9999";
+	private String white="White";
+	
 
 	@Before
 	public void init() {
@@ -32,6 +35,16 @@ public class ParkinglotServiceTest {
 		parkingService.createParkingLot(parkingLevel);
 		String ouput = parkingService.parkCar(whiteCar);
 		assertEquals("Allocated Slot Number: 1", ouput);
+
+	}
+	
+	@Test
+	public void getAssignedSlotOfCar() throws ParkingLotNotAvilableException {
+		parkingService.createParkingLot(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingService.parkCar(car);
+		String ouput = parkingService.getSlotNumFromRegNo(carRegNum);
+		assertEquals(Integer.toString(1), ouput);
 
 	}
 

@@ -32,4 +32,17 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		}
 	}
 
+	@Override
+	public Integer getSlotNumFromRegNo(String regNum) {
+		int slotNum = 0;
+		for (Map.Entry<Integer, CarModel> parkingEntry : parkingLotMap.entrySet()) {
+			if (parkingEntry.getValue() != null
+					&& parkingEntry.getValue().getRegistrationNo().equalsIgnoreCase(regNum)) {
+				slotNum = parkingEntry.getKey();
+				break;
+			}
+		}
+		return slotNum;
+	}
+
 }

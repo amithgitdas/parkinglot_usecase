@@ -25,4 +25,10 @@ public class ParkinglotSeriveImplemenation implements ParkinglotService {
 		}
 	}
 
+	@Override
+	public String getSlotNumFromRegNo(String regNum) {
+		int slotNum = parkingLotDAO.getSlotNumFromRegNo(regNum);
+		return (slotNum == 0) ? "Not Found!" : Integer.toString(slotNum);
+	}
+
 }

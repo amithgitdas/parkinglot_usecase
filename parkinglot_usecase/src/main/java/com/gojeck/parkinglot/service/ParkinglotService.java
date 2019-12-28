@@ -14,4 +14,6 @@ public interface ParkinglotService {
 	public void createParkingLot(int numSlots);
 
 	String parkCar(CarModel car);
+
+	String getSlotNumFromRegNo(String regNum);
 }

@@ -44,10 +44,16 @@ public class ParkingLotAssignment {
 	}
 
 	private static void parkingSlotAssignment(String input) {
-		String[] inputArr = input.split(" ");
-		switch (inputArr[0]) {
+		String[] carArr = input.split(" ");
+		switch (carArr[0]) {
 		case ParkingLotConstants.PARK_CAR:
-			parkCar(inputArr);
+			parkCar(carArr);
+			break;
+		case ParkingLotConstants.SLOT_NUMBER_FOR_CARREG_NUMBER:
+			if (ParkinglotUtils.checkInput(carArr, 2)) {
+				String slotNoStatusOfRegNo = parkingService.getSlotNumFromRegNo(carArr[1]);
+				System.out.println(slotNoStatusOfRegNo);
+			}
 			break;
 		}
 	}
@@ -60,4 +66,5 @@ public class ParkingLotAssignment {
 			System.out.println(parkVehicleStatus);
 		}
 	}
+
 }

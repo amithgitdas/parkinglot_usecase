@@ -49,4 +49,14 @@ public class ParkinglotDaoTest {
 
 	}
 
+	@Test
+	public void getAssignedSlotOfCar() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingDAO.parkCar(car);
+		int ouput = parkingDAO.getSlotNumFromRegNo(carRegNum);
+		assertEquals(1, ouput);
+
+	}
+
 }
