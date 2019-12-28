@@ -51,12 +51,23 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	@Test
 	public void getSlotNumbersBasedColorSerivce() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel);
 		CarModel car = new CarModel(carRegNum, white);
 		parkingService.parkCar(car);
 		String ouput = parkingService.findCarSlotNumberForGivenColor(white);
 		assertEquals("1", ouput);
+
+	}
+	
+	@Test
+	public void getRegNumbersBasedColorSerivce() throws ParkingLotNotAvilableException {
+		parkingService.createParkingLot(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingService.parkCar(car);
+		String ouput = parkingService.getCarRegNumbersBasedOnColur(white);
+		assertEquals(carRegNum, ouput);
 
 	}
 

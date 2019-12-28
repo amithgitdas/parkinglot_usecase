@@ -58,4 +58,15 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		return carSlot;
 	}
 
+	@Override
+	public List<String> getCarRegNumbersBasedOnColur(String color) {
+		List<String> carRegNo = new ArrayList<>();
+		for (Map.Entry<Integer, CarModel> parkingEntry : parkingLotMap.entrySet()) {
+			if (parkingEntry.getValue() != null && parkingEntry.getValue().getColor().equalsIgnoreCase(color)) {
+				carRegNo.add(parkingEntry.getValue().getRegistrationNo());
+			}
+		}
+		return carRegNo;
+	}
+
 }

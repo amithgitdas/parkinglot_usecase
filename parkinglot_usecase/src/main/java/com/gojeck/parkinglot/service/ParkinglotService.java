@@ -20,4 +20,6 @@ public interface ParkinglotService {
 	String getSlotNumFromRegNo(String regNum);
 	
 	String findCarSlotNumberForGivenColor(String color);
+	
+	String getCarRegNumbersBasedOnColur(String color);
 }

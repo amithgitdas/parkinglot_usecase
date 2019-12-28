@@ -73,5 +73,17 @@ public class ParkinglotDaoTest {
 		assertEquals(expected, ouput);
 
 	}
+	
+	@Test
+	public void getRegNumbersBasedColor() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingDAO.parkCar(car);
+		List<String> ouput = parkingDAO.getCarRegNumbersBasedOnColur(white);
+		List<String> expected = new ArrayList<>();
+		expected.add(carRegNum);
+		assertEquals(expected, ouput);
+
+	}
 
 }

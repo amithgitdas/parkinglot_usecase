@@ -40,4 +40,10 @@ public class ParkinglotSeriveImplemenation implements ParkinglotService {
 		return ParkinglotUtils.convertListToString(carSlot);
 	}
 
+	@Override
+	public String getCarRegNumbersBasedOnColur(String color) {
+		List<String> carRegNumber = parkingLotDAO.getCarRegNumbersBasedOnColur(color);
+		return ParkinglotUtils.convertListToString(carRegNumber);
+	}
+
 }

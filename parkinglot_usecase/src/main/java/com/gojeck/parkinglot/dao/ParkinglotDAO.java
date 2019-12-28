@@ -20,4 +20,6 @@ public interface ParkinglotDAO {
 	Integer getSlotNumFromRegNo(String regNum);
 
 	List<Integer> findCarSlotNumberForGivenColor(String color);
+	
+	List<String> getCarRegNumbersBasedOnColur(String color);
 }
