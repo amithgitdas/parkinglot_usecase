@@ -9,5 +9,5 @@ package com.gojeck.parkinglot.service;
  */
 public interface ParkinglotService {
 
-	public void createParkingLot(int numLevels, int levelCapacity);
+	public void createParkingLot(int numSlots);
 }
