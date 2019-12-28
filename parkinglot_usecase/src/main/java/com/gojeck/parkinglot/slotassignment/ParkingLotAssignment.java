@@ -30,11 +30,10 @@ public class ParkingLotAssignment {
 		int noOfParkingSlots = 0;
 		while (true) {
 			try {
-				System.out.println("create_parking_lot : ");
-				noOfParkingSlots = scn.nextInt();
+				noOfParkingSlots = Integer.parseInt(scn.nextLine().split(" ")[1]);
 				break;
 			} catch (Exception e) {
-				scn.next();
+				scn.nextLine();
 				System.out.println("Please input correct number.");
 			}
 		}
@@ -84,6 +83,18 @@ public class ParkingLotAssignment {
 		case ParkingLotConstants.CAR_PARK_STATUS:
 			printParkingStatus();
 			break;
+			
+		case ParkingLotConstants.INSTRUCTIONS:
+			ParkinglotUtils.printInstructions();
+			break;
+		case ParkingLotConstants.EXIT_PROGRAM:
+			System.out.println("Application Closed.");
+			System.exit(0);
+			break;
+
+		default:
+			System.out.println("Entered values incorrect! Please enter instructions for all commands");
+			break;
 		}
 
 	}
@@ -99,7 +110,7 @@ public class ParkingLotAssignment {
 
 	public static void printParkingStatus() {
 		Set<Entry<Integer, CarModel>> parkingDetails = parkingService.carParkStatus();
-		System.out.println("Slot No." + "  " + " Registration No " + "\t" + " Color");
+		System.out.println("Slot No." + "  " + " Registration No " + "\t" + " Colour");
 		for (Entry<Integer, CarModel> park : parkingDetails) {
 			if (park.getValue() != null)
 				System.out.println(park.getKey() + "\t    " + park.getValue().getRegistrationNo() + "\t\t  "

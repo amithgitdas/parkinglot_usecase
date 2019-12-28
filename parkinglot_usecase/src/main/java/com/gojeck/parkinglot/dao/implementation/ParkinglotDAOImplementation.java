@@ -77,7 +77,7 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 			if (entry.getKey() == slotNUm) {
 				parkingLotMap.put(entry.getKey(), null);
 				availableLots.add(slotNUm);
-				return "Slot " + slotNUm + " is free";
+				return "Slot number " + slotNUm + " is free";
 			}
 		}
 		throw new ParkingLotNotAvilableException(slotNUm + " Slot not found!");

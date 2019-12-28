@@ -19,4 +19,8 @@ public interface ParkingLotConstants {
 	public static final String LEAVE_CAR = "leave";
 	
 	public static final String CAR_PARK_STATUS = "status";
+	
+	public static final String INSTRUCTIONS = "instructions";
+	
+	public static final String EXIT_PROGRAM = "exit";
 }
