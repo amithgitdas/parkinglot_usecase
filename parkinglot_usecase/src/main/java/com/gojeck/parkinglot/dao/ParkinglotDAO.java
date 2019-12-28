@@ -3,6 +3,8 @@
  */
 package com.gojeck.parkinglot.dao;
 
+import java.util.List;
+
 import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
 import com.gojeck.parkinglot.model.CarModel;
 
@@ -16,4 +18,6 @@ public interface ParkinglotDAO {
 	Integer parkCar(CarModel car) throws ParkingLotNotAvilableException;
 
 	Integer getSlotNumFromRegNo(String regNum);
+
+	List<Integer> findCarSlotNumberForGivenColor(String color);
 }

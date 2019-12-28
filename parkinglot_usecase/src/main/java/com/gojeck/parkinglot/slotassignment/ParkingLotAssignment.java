@@ -55,6 +55,13 @@ public class ParkingLotAssignment {
 				System.out.println(slotNoStatusOfRegNo);
 			}
 			break;
+
+		case ParkingLotConstants.CAR_SLOT_NUM_BASED_ON_COLOR:
+			if (ParkinglotUtils.checkInput(carArr, 2)) {
+				String allSlotNumber = parkingService.findCarSlotNumberForGivenColor(carArr[1]);
+				System.out.println(allSlotNumber);
+			}
+			break;
 		}
 	}
 

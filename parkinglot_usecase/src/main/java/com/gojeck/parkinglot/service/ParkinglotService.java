@@ -3,6 +3,8 @@
  */
 package com.gojeck.parkinglot.service;
 
+import java.util.List;
+
 import com.gojeck.parkinglot.model.CarModel;
 
 /**
@@ -16,4 +18,6 @@ public interface ParkinglotService {
 	String parkCar(CarModel car);
 
 	String getSlotNumFromRegNo(String regNum);
+	
+	String findCarSlotNumberForGivenColor(String color);
 }

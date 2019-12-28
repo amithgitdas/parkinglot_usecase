@@ -2,6 +2,9 @@ package com.gojeck.parkinglot.servicetest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,6 +48,15 @@ public class ParkinglotServiceTest {
 		parkingService.parkCar(car);
 		String ouput = parkingService.getSlotNumFromRegNo(carRegNum);
 		assertEquals(Integer.toString(1), ouput);
+
+	}
+	
+	public void getSlotNumbersBasedColorSerivce() throws ParkingLotNotAvilableException {
+		parkingService.createParkingLot(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingService.parkCar(car);
+		String ouput = parkingService.findCarSlotNumberForGivenColor(white);
+		assertEquals("1", ouput);
 
 	}
 

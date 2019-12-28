@@ -1,6 +1,8 @@
 package com.gojeck.parkinglot.dao.implementation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -43,6 +45,17 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 			}
 		}
 		return slotNum;
+	}
+
+	@Override
+	public List<Integer> findCarSlotNumberForGivenColor(String color) {
+		List<Integer> carSlot = new ArrayList<>();
+		for (Map.Entry<Integer, CarModel> parkingEntry : parkingLotMap.entrySet()) {
+			if (parkingEntry.getValue() != null && parkingEntry.getValue().getColor().equalsIgnoreCase(color)) {
+				carSlot.add(parkingEntry.getKey());
+			}
+		}
+		return carSlot;
 	}
 
 }

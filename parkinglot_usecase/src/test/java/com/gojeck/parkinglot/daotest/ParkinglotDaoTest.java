@@ -5,6 +5,9 @@ package com.gojeck.parkinglot.daotest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,6 +59,18 @@ public class ParkinglotDaoTest {
 		parkingDAO.parkCar(car);
 		int ouput = parkingDAO.getSlotNumFromRegNo(carRegNum);
 		assertEquals(1, ouput);
+
+	}
+
+	@Test
+	public void getSlotNumbersBasedColor() throws ParkingLotNotAvilableException {
+		parkingDAO.createParkinglots(parkingLevel);
+		CarModel car = new CarModel(carRegNum, white);
+		parkingDAO.parkCar(car);
+		List<Integer> ouput = parkingDAO.findCarSlotNumberForGivenColor(white);
+		List<Integer> expected = new ArrayList<>();
+		expected.add(1);
+		assertEquals(expected, ouput);
 
 	}
 
