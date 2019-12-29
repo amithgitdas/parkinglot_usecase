@@ -12,11 +12,20 @@ import com.gojeck.parkinglot.dao.ParkinglotDAO;
 import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
 import com.gojeck.parkinglot.model.CarModel;
 
+/**
+ * The Class ParkinglotDAOImplementation.
+ */
 public class ParkinglotDAOImplementation implements ParkinglotDAO {
 
+	/** The parking lot map. */
 	public static Map<Integer, CarModel> parkingLotMap = new HashMap<>();
+	
+	/** The available lots. */
 	public static TreeSet<Integer> availableLots = new TreeSet<>();
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#createParkinglots(java.lang.Integer)
+	 */
 	@Override
 	public void createParkinglots(Integer parkinglots) {
 		for (int i = 0; i < parkinglots; i++) {
@@ -25,6 +34,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		}
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#parkCar(com.gojeck.parkinglot.model.CarModel)
+	 */
 	@Override
 	public Integer parkCar(CarModel car) throws ParkingLotNotAvilableException {
 		if (availableLots.isEmpty()) {
@@ -36,6 +48,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		}
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#getSlotNumFromRegNo(java.lang.String)
+	 */
 	@Override
 	public Integer getSlotNumFromRegNo(String regNum) {
 		int slotNum = 0;
@@ -49,6 +64,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		return slotNum;
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#findCarSlotNumberForGivenColor(java.lang.String)
+	 */
 	@Override
 	public List<Integer> findCarSlotNumberForGivenColor(String color) {
 		List<Integer> carSlot = new ArrayList<>();
@@ -60,6 +78,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		return carSlot;
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#getCarRegNumbersBasedOnColur(java.lang.String)
+	 */
 	@Override
 	public List<String> getCarRegNumbersBasedOnColur(String color) {
 		List<String> carRegNo = new ArrayList<>();
@@ -71,6 +92,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		return carRegNo;
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#leaveCar(java.lang.Integer)
+	 */
 	@Override
 	public String leaveCar(Integer slotNUm) throws ParkingLotNotAvilableException {
 		for (Map.Entry<Integer, CarModel> entry : parkingLotMap.entrySet()) {
@@ -83,6 +107,9 @@ public class ParkinglotDAOImplementation implements ParkinglotDAO {
 		throw new ParkingLotNotAvilableException(slotNUm + " Slot not found!");
 	}
 
+	/* 
+	 * @see com.gojeck.parkinglot.dao.ParkinglotDAO#carParkStatus()
+	 */
 	@Override
 	public Set<Entry<Integer, CarModel>> carParkStatus() {
 		return parkingLotMap.entrySet();

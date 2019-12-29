@@ -19,32 +19,58 @@ import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
 import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
 import com.gojeck.parkinglot.model.CarModel;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author AMITH DAS
+ * The Class ParkinglotDaoTest.
  *
+ * @author AMITH DAS
  */
 public class ParkinglotDaoTest {
+	
+	/** The parking level. */
 	private int parkingLevel;
+	
+	/** The parking DAO. */
 	private ParkinglotDAO parkingDAO = new ParkinglotDAOImplementation();
+	
+	/** The car reg num. */
 	private String carRegNum = "KA-01-HH-9999";
+	
+	/** The white. */
 	private String white = "White";
+	
+	/** The black. */
 	private String black = "Black";
 
+	/**
+	 * Inits the.
+	 */
 	@Before
 	public void init() {
 		parkingLevel = 6;
 	}
 
+	/**
+	 * Clean up.
+	 */
 	@After
 	public void cleanUp() {
 		System.setOut(null);
 	}
 
+	/**
+	 * Creates the car parking lot.
+	 */
 	@Test
 	public void createCarParkingLot() {
 		parkingDAO.createParkinglots(parkingLevel);
 	}
 
+	/**
+	 * Assign slot for car.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void AssignSlotForCar() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel);
@@ -54,6 +80,12 @@ public class ParkinglotDaoTest {
 
 	}
 
+	/**
+	 * Gets the assigned slot of car.
+	 *
+	 * @return the assigned slot of car
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getAssignedSlotOfCar() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel);
@@ -64,6 +96,12 @@ public class ParkinglotDaoTest {
 
 	}
 
+	/**
+	 * Gets the slot numbers based color.
+	 *
+	 * @return the slot numbers based color
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getSlotNumbersBasedColor() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel);
@@ -76,6 +114,12 @@ public class ParkinglotDaoTest {
 
 	}
 	
+	/**
+	 * Gets the reg numbers based color.
+	 *
+	 * @return the reg numbers based color
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getRegNumbersBasedColor() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel);
@@ -88,6 +132,11 @@ public class ParkinglotDaoTest {
 
 	}
 	
+	/**
+	 * Leave car.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void leaveCar() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel+1);
@@ -99,6 +148,11 @@ public class ParkinglotDaoTest {
 
 	}
 	
+	/**
+	 * Car parking status.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void carParkingStatus() throws ParkingLotNotAvilableException {
 		parkingDAO.createParkinglots(parkingLevel+1);

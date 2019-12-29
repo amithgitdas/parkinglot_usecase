@@ -18,17 +18,28 @@ import com.gojeck.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation
 import com.gojeck.parkinglot.utils.ParkinglotUtils;
 
 /**
- * @author AMITH DAS
+ * The Class ParkingLotAssignment.
  *
+ * @author AMITH DAS
  */
 public class ParkingLotAssignment {
 
 	/**
-	 * @param args
+	 * The parking service.
+	 *
 	 */
 	static ParkinglotService parkingService = new ParkinglotSeriveImplemenation();
+	
+	/** The scn. */
 	static Scanner scn = new Scanner(System.in);
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws NumberFormatException the number format exception
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	public static void main(String[] args) throws NumberFormatException, ParkingLotNotAvilableException {
 		BufferedReader bufferReader = null;
 		String instructLine = null;
@@ -64,7 +75,14 @@ public class ParkingLotAssignment {
 
 	}
 
-	private static void parkingSlotAssignment(String input)
+	/**
+	 * Parking slot assignment.
+	 *
+	 * @param input the input
+	 * @throws NumberFormatException the number format exception
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
+	public static void parkingSlotAssignment(String input)
 			throws NumberFormatException, ParkingLotNotAvilableException {
 		String[] carArr = input.split(" ");
 		switch (carArr[0]) {
@@ -123,6 +141,11 @@ public class ParkingLotAssignment {
 
 	}
 
+	/**
+	 * Park car.
+	 *
+	 * @param carDtls the car dtls
+	 */
 	public static void parkCar(String[] carDtls) {
 		int len = 3;
 		if (ParkinglotUtils.checkInput(carDtls, len)) {
@@ -132,6 +155,9 @@ public class ParkingLotAssignment {
 		}
 	}
 
+	/**
+	 * Prints the parking status.
+	 */
 	public static void printParkingStatus() {
 		Set<Entry<Integer, CarModel>> parkingDetails = parkingService.carParkStatus();
 		System.out.println("Slot No." + "  " + " Registration No " + "\t" + " Colour");

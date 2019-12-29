@@ -16,25 +16,49 @@ import com.gojeck.parkinglot.model.CarModel;
 import com.gojeck.parkinglot.service.ParkinglotService;
 import com.gojeck.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ParkinglotServiceTest.
+ */
 public class ParkinglotServiceTest {
 
+	/** The parking level. */
 	private int parkingLevel;
+	
+	/** The parking service. */
 	private ParkinglotService parkingService = new ParkinglotSeriveImplemenation();
+	
+	/** The white car. */
 	private CarModel whiteCar= new CarModel("KA-01-HH-9999", "White");
+	
+	/** The car reg num. */
 	private String carRegNum="KA-01-HH-9999";
+	
+	/** The white. */
 	private String white="White";
 	
 
+	/**
+	 * Inits the.
+	 */
 	@Before
 	public void init() {
 		parkingLevel = 1;
 	}
 
+	/**
+	 * Clean up.
+	 */
 	@After
 	public void cleanUp() {
 		System.setOut(null);
 	}
 
+	/**
+	 * Assign slot for car service.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void AssignSlotForCar_Service() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel);
@@ -43,6 +67,12 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	/**
+	 * Gets the assigned slot of car.
+	 *
+	 * @return the assigned slot of car
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getAssignedSlotOfCar() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel);
@@ -53,6 +83,12 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	/**
+	 * Gets the slot numbers based color serivce.
+	 *
+	 * @return the slot numbers based color serivce
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getSlotNumbersBasedColorSerivce() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel);
@@ -63,6 +99,12 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	/**
+	 * Gets the reg numbers based color serivce.
+	 *
+	 * @return the reg numbers based color serivce
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void getRegNumbersBasedColorSerivce() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel);
@@ -73,6 +115,11 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	/**
+	 * Leave car.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void leaveCar() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel+1);
@@ -84,6 +131,11 @@ public class ParkinglotServiceTest {
 
 	}
 	
+	/**
+	 * Car parking status.
+	 *
+	 * @throws ParkingLotNotAvilableException the parking lot not avilable exception
+	 */
 	@Test
 	public void carParkingStatus() throws ParkingLotNotAvilableException {
 		parkingService.createParkingLot(parkingLevel+1);
