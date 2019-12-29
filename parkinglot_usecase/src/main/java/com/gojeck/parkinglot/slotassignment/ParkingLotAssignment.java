@@ -3,6 +3,9 @@
  */
 package com.gojeck.parkinglot.slotassignment;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
@@ -27,28 +30,49 @@ public class ParkingLotAssignment {
 	static Scanner scn = new Scanner(System.in);
 
 	public static void main(String[] args) throws NumberFormatException, ParkingLotNotAvilableException {
-		int noOfParkingSlots = 0;
-		while (true) {
-			try {
-				noOfParkingSlots = Integer.parseInt(scn.nextLine().split(" ")[1]);
+		BufferedReader bufferReader = null;
+		String instructLine = null;
+		switch (args.length) {
+		case 0: {
+			if ("exit".equalsIgnoreCase(instructLine)) {
 				break;
-			} catch (Exception e) {
-				scn.nextLine();
-				System.out.println("Please input correct number.");
+			} else {
+				while (true) {
+					parkingSlotAssignment(scn.nextLine());
+				}
 			}
 		}
-		parkingService.createParkingLot(noOfParkingSlots);
-		System.out.println("Created a parking lot with " + noOfParkingSlots + " slots");
-		scn.nextLine();
-		do {
-			parkingSlotAssignment(scn.nextLine());
-		} while (true);
+		case 1:
+		{
+
+			File inputFile = new File(args[0]);
+			try {
+				bufferReader = new BufferedReader(new FileReader(inputFile));
+				while ((instructLine = bufferReader.readLine()) != null) {
+					instructLine = instructLine.trim();
+
+					parkingSlotAssignment(instructLine);
+				}
+			} catch (Exception e) {
+				throw new ParkingLotNotAvilableException("INVALID FILE PATH", e);
+			}
+			break;
+		}
+		default:
+			System.out.println("Invalid input. Usage: java -jar <jar_path> <input_file_path>");
+		}
+
 	}
 
 	private static void parkingSlotAssignment(String input)
 			throws NumberFormatException, ParkingLotNotAvilableException {
 		String[] carArr = input.split(" ");
 		switch (carArr[0]) {
+		case ParkingLotConstants.CREATE_PARKING_LOT:
+			parkingService.createParkingLot(Integer.parseInt(carArr[1]));
+			System.out.println("Created a parking lot with " + Integer.parseInt(carArr[1]) + " slots");
+			break;
+
 		case ParkingLotConstants.PARK_CAR:
 			parkCar(carArr);
 			break;
@@ -83,7 +107,7 @@ public class ParkingLotAssignment {
 		case ParkingLotConstants.CAR_PARK_STATUS:
 			printParkingStatus();
 			break;
-			
+
 		case ParkingLotConstants.INSTRUCTIONS:
 			ParkinglotUtils.printInstructions();
 			break;

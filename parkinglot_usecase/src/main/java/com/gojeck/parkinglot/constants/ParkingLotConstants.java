@@ -8,6 +8,7 @@ package com.gojeck.parkinglot.constants;
  *
  */
 public interface ParkingLotConstants {
+	public static final String CREATE_PARKING_LOT = "create_parking_lot";
 	public static final String PARK_CAR = "park";
 
 	public static final String SLOT_NUMBER_FOR_CARREG_NUMBER = "slot_number_for_registration_number";
