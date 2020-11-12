@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.gojeck.parkinglot.service;
+package com.parkinglot.service;
 
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
 
 /**
  * The Interface ParkinglotService.

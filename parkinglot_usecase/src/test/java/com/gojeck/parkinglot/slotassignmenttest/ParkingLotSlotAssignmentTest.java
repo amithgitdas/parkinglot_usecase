@@ -4,8 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.slotassignment.ParkingLotAssignment;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.slotassignment.ParkingLotAssignment;
 
 /**
  * The Class ParkingLotSlotAssignmentTest.

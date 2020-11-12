@@ -11,10 +11,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
-import com.gojeck.parkinglot.service.ParkinglotService;
-import com.gojeck.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
+import com.parkinglot.service.ParkinglotService;
+import com.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
 
 // TODO: Auto-generated Javadoc
 /**

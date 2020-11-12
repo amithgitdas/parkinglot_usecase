@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gojeck.parkinglot.constants;
+package com.parkinglot.constants;
 
 /**
  * The Interface ParkingLotConstants.

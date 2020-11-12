@@ -1,4 +1,4 @@
-package com.gojeck.parkinglot.dao.implementation;
+package com.parkinglot.dao.implementation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.gojeck.parkinglot.dao.ParkinglotDAO;
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
+import com.parkinglot.dao.ParkinglotDAO;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
 
 /**
  * The Class ParkinglotDAOImplementation.

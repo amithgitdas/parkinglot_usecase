@@ -1,4 +1,4 @@
-package com.gojeck.parkinglot.exceptions;
+package com.parkinglot.exceptions;
 
 /**
  * The Class ParkingLotNotAvilableException.

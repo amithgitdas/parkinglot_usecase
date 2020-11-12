@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.gojeck.parkinglot.dao;
+package com.parkinglot.dao;
 
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
 
 /**
  * The Interface ParkinglotDAO.

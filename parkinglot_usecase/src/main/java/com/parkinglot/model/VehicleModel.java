@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gojeck.parkinglot.model;
+package com.parkinglot.model;
 
 /**
  * The Class VehicleModel.

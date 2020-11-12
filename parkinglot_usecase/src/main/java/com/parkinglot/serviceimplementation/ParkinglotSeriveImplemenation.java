@@ -1,15 +1,15 @@
-package com.gojeck.parkinglot.serviceimplementation;
+package com.parkinglot.serviceimplementation;
 
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.gojeck.parkinglot.dao.ParkinglotDAO;
-import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
-import com.gojeck.parkinglot.service.ParkinglotService;
-import com.gojeck.parkinglot.utils.ParkinglotUtils;
+import com.parkinglot.dao.ParkinglotDAO;
+import com.parkinglot.dao.implementation.ParkinglotDAOImplementation;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
+import com.parkinglot.service.ParkinglotService;
+import com.parkinglot.utils.ParkinglotUtils;
 
 /**
  * The Class ParkinglotSeriveImplemenation.

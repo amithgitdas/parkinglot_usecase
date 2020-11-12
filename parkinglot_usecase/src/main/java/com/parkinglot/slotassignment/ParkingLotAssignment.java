@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gojeck.parkinglot.slotassignment;
+package com.parkinglot.slotassignment;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,12 +10,12 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.gojeck.parkinglot.constants.ParkingLotConstants;
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
-import com.gojeck.parkinglot.service.ParkinglotService;
-import com.gojeck.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
-import com.gojeck.parkinglot.utils.ParkinglotUtils;
+import com.parkinglot.constants.ParkingLotConstants;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
+import com.parkinglot.service.ParkinglotService;
+import com.parkinglot.serviceimplementation.ParkinglotSeriveImplemenation;
+import com.parkinglot.utils.ParkinglotUtils;
 
 /**
  * The Class ParkingLotAssignment.

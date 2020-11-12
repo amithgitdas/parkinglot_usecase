@@ -1,4 +1,4 @@
-package com.gojeck.parkinglot.utils;
+package com.parkinglot.utils;
 
 import java.util.List;
 

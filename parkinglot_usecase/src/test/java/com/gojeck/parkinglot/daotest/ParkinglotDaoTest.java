@@ -14,10 +14,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gojeck.parkinglot.dao.ParkinglotDAO;
-import com.gojeck.parkinglot.dao.implementation.ParkinglotDAOImplementation;
-import com.gojeck.parkinglot.exceptions.ParkingLotNotAvilableException;
-import com.gojeck.parkinglot.model.CarModel;
+import com.parkinglot.dao.ParkinglotDAO;
+import com.parkinglot.dao.implementation.ParkinglotDAOImplementation;
+import com.parkinglot.exceptions.ParkingLotNotAvilableException;
+import com.parkinglot.model.CarModel;
 
 // TODO: Auto-generated Javadoc
 /**
